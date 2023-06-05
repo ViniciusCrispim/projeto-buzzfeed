@@ -1,1 +1,20 @@
-<p>quizz works!</p>
+<div class="container">
+    <div class="logo">
+        <img src="../../../assets/imgs/logo.png" alt="">
+        <h3>{{ title }}</h3>
+    </div>
+
+    <div *ngIf="!terminou" class="questoes">
+        <h3>{{ questaoEscolhida.question }}</h3>
+    </div>
+
+    <div *ngIf="!terminou" class="opcao">
+        <button *ngFor="let opcao of questaoEscolhida.options; let i = index" (click)="escolhaJogador(opcao.alias)" class="btn-opcao">
+            {{opcao.name}}
+        </button>
+    </div>
+    <div *ngIf="terminou" class="resultado">
+        <h1>O seu resultado é:</h1>
+        <p>{{questaoEscolhida}}</p>
+    </div>
+</div>
